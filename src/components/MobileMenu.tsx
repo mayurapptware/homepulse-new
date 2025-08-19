@@ -8,15 +8,41 @@ import {
   IconButton,
   Typography,
   Button,
+  Avatar,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { styled } from '@mui/material/styles';
 
 const GradientButton = styled(Button)({
-  background: 'linear-gradient(90deg, #4A90E2 0%, #F5A623 100%)',
+  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
   color: 'white',
+  borderRadius: '50px',
+  padding: '12px 32px',
+  fontSize: '1rem',
+  fontWeight: 600,
+  textTransform: 'none',
+  boxShadow: '0 8px 32px rgba(102, 126, 234, 0.3)',
+  transition: 'all 0.3s ease',
   '&:hover': {
-    background: 'linear-gradient(90deg, #357ABD 0%, #E0941A 100%)',
+    background: 'linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%)',
+    transform: 'translateY(-2px)',
+    boxShadow: '0 12px 40px rgba(102, 126, 234, 0.4)',
+  },
+});
+
+const SecondaryButton = styled(Button)({
+  border: '2px solid rgba(255, 255, 255, 0.2)',
+  color: 'white',
+  borderRadius: '50px',
+  padding: '12px 32px',
+  fontSize: '1rem',
+  fontWeight: 600,
+  textTransform: 'none',
+  transition: 'all 0.3s ease',
+  '&:hover': {
+    borderColor: 'white',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    transform: 'translateY(-2px)',
   },
 });
 
@@ -46,7 +72,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onSignUp, onLogIn }) => {
         aria-label="open drawer"
         edge="start"
         onClick={handleDrawerToggle}
-        sx={{ color: 'white' }}
+        sx={{ 
+          color: 'white',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          borderRadius: '12px',
+          '&:hover': {
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+          },
+        }}
       >
         <MenuIcon />
       </IconButton>
@@ -57,18 +90,39 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onSignUp, onLogIn }) => {
         onClose={handleDrawerToggle}
         PaperProps={{
           sx: {
-            backgroundColor: '#1A1A1A',
-            width: 280,
+            background: 'linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%)',
+            width: 320,
             pt: 2,
+            borderLeft: '1px solid rgba(255, 255, 255, 0.1)',
           },
         }}
       >
-        <List>
+        {/* Header */}
+        <Box sx={{ p: 3, borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
+            <Avatar
+              sx={{
+                width: 48,
+                height: 48,
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                boxShadow: '0 8px 32px rgba(102, 126, 234, 0.3)',
+              }}
+            >
+              PZ
+            </Avatar>
+            <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1.5rem' }}>
+              Pulse<span style={{ color: '#667eea' }}>Zenith</span>
+            </Typography>
+          </Box>
+        </Box>
+
+        <List sx={{ pt: 2 }}>
           {menuItems.map((item) => (
             <ListItem
               key={item.text}
               sx={{
                 py: 2,
+                px: 3,
                 '&:hover': {
                   backgroundColor: 'rgba(255, 255, 255, 0.05)',
                 },
@@ -79,8 +133,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onSignUp, onLogIn }) => {
                   <Typography
                     variant="body1"
                     sx={{
-                      color: item.active ? '#4A90E2' : 'white',
-                      fontWeight: item.active ? 600 : 400,
+                      color: item.active ? '#667eea' : 'white',
+                      fontWeight: item.active ? 600 : 500,
+                      fontSize: '1.1rem',
                     }}
                   >
                     {item.text}
@@ -91,25 +146,25 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onSignUp, onLogIn }) => {
           ))}
         </List>
         
-        <Box sx={{ p: 2, mt: 2 }}>
-          <Button
-            variant="outlined"
+        <Box sx={{ p: 3, mt: 'auto' }}>
+          <SecondaryButton
             fullWidth
             sx={{
               mb: 2,
-              color: 'white',
-              borderColor: 'rgba(255, 255, 255, 0.3)',
-              '&:hover': {
-                borderColor: 'white',
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              },
+              py: 1.5,
             }}
             onClick={onLogIn}
           >
             Log In
-          </Button>
-          <GradientButton fullWidth onClick={onSignUp}>
-            Sign Up Free
+          </SecondaryButton>
+          <GradientButton 
+            fullWidth 
+            onClick={onSignUp}
+            sx={{
+              py: 1.5,
+            }}
+          >
+            Get Started Free
           </GradientButton>
         </Box>
       </Drawer>
