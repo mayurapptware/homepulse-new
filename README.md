@@ -1,153 +1,85 @@
-# PulseZenith - Modern Home Management Platform
+# Mercury Dashboard Clone
 
-A beautiful, modern React TypeScript application built with Material UI that replicates the PulseZenith redesign. This project showcases a sleek, professional landing page for a home management platform with AI-powered features.
+A React-based clone of the Mercury dashboard built with Tailwind CSS and TypeScript.
 
-## 🚀 Features
+## Features
 
-- **Modern Design**: Sleek, gradient-based design with glass morphism effects
-- **Responsive Layout**: Fully responsive design that works on all devices
-- **Smooth Animations**: Fade-in and slide-up animations for enhanced UX
-- **Material UI**: Built with Material UI components for consistency
-- **TypeScript**: Full TypeScript support for better development experience
-- **Dark Theme**: Beautiful dark theme with custom color palette
-- **Interactive Elements**: Hover effects and smooth transitions
+- **Modern Dashboard UI**: Clean, professional design inspired by Mercury's dashboard
+- **Responsive Layout**: Works seamlessly on desktop and mobile devices
+- **Interactive Components**: Tab navigation, period selectors, and interactive charts
+- **Real-time Data**: Mock data that simulates real financial transactions
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development
 
-## 🎨 Design Highlights
+## Components
 
-- **Color Scheme**: Modern purple-blue gradient (#667eea to #764ba2)
-- **Typography**: Clean, readable fonts with proper hierarchy
-- **Glass Morphism**: Translucent cards with backdrop blur effects
-- **Gradient Buttons**: Eye-catching call-to-action buttons
-- **Custom Scrollbar**: Styled scrollbar matching the theme
-- **Mobile-First**: Optimized for mobile devices with hamburger menu
+- **Header**: Mercury branding with navigation
+- **Stats Cards**: Key financial metrics (Income, Expenses, Net Income, Pending)
+- **Cash Flow Chart**: Visual representation of income vs expenses over time
+- **Recent Transactions**: List of latest financial activities
+- **Quick Actions**: Common dashboard actions (New Transaction, Send Money, etc.)
 
-## 🛠️ Tech Stack
+## Getting Started
 
-- **React 19.1.1** - Latest React with hooks
-- **TypeScript 4.9.5** - Type safety and better development experience
-- **Material UI 7.3.1** - Component library and theming
-- **Emotion** - CSS-in-JS styling
-- **React Scripts** - Build and development tools
+### Prerequisites
 
-## 📦 Installation
+- Node.js (v14 or higher)
+- npm or yarn
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd homepulse-ai
-   ```
+### Installation
 
-2. **Install dependencies**
+1. Install dependencies:
    ```bash
    npm install
    ```
 
-3. **Start the development server**
+2. Start the development server:
    ```bash
    npm start
    ```
 
-4. **Open your browser**
-   Navigate to `http://localhost:3000`
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## 🏗️ Project Structure
+### Building for Production
 
-```
-src/
-├── components/
-│   ├── HomePulseLanding.tsx    # Main landing page component
-│   └── MobileMenu.tsx          # Mobile navigation menu
-├── App.tsx                     # Main app component with theme
-├── index.css                   # Global styles and animations
-└── index.tsx                   # App entry point
-```
-
-## 🎯 Key Components
-
-### HomePulseLanding
-The main landing page component featuring:
-- Hero section with compelling copy
-- Feature highlights with icons
-- Customer testimonials
-- Call-to-action sections
-- Background graphics and animations
-
-### MobileMenu
-Responsive mobile navigation with:
-- Hamburger menu toggle
-- Smooth slide-in animation
-- Branded header
-- Navigation links
-- Action buttons
-
-## 🎨 Customization
-
-### Colors
-The color scheme can be customized in `src/App.tsx`:
-```typescript
-palette: {
-  primary: {
-    main: '#667eea',    // Primary purple
-  },
-  secondary: {
-    main: '#764ba2',    // Secondary purple
-  },
-}
-```
-
-### Typography
-Font weights and sizes are defined in the theme:
-```typescript
-typography: {
-  h1: {
-    fontWeight: 800,
-    fontSize: '4rem',
-  },
-  // ... other variants
-}
-```
-
-## 📱 Responsive Design
-
-The application is fully responsive with breakpoints:
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
-
-## 🚀 Deployment
-
-### Build for Production
 ```bash
 npm run build
 ```
 
-### Deploy to Netlify/Vercel
-1. Connect your repository
-2. Set build command: `npm run build`
-3. Set publish directory: `build`
+## Technology Stack
 
-## 🔧 Available Scripts
+- **React 19**: Latest React with hooks and functional components
+- **TypeScript**: Type-safe JavaScript development
+- **Tailwind CSS**: Utility-first CSS framework
+- **PostCSS**: CSS processing with autoprefixer
 
-- `npm start` - Start development server
-- `npm run build` - Build for production
-- `npm test` - Run tests
-- `npm run eject` - Eject from Create React App
+## Project Structure
 
-## 📄 License
+```
+src/
+├── components/
+│   └── MercuryDashboard.tsx    # Main dashboard component
+├── App.tsx                     # App entry point
+├── index.css                   # Global styles with Tailwind
+└── index.tsx                   # React entry point
+```
 
-This project is licensed under the MIT License.
+## Customization
 
-## 🤝 Contributing
+The dashboard uses Tailwind CSS classes for styling. You can customize:
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+- Colors: Modify the `tailwind.config.js` color palette
+- Layout: Adjust grid systems and spacing
+- Components: Modify the component structure and styling
 
-## 📞 Support
+## Features to Add
 
-For support or questions, please open an issue in the repository.
+- Real API integration
+- User authentication
+- More detailed transaction views
+- Export functionality
+- Advanced filtering and search
+- Dark mode toggle
 
----
+## License
 
-**Built with ❤️ using React, TypeScript, and Material UI**
+This project is for educational purposes and demonstrates modern React development practices.
