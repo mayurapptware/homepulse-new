@@ -20,22 +20,22 @@ const MercuryDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState('overview');
   const [selectedPeriod, setSelectedPeriod] = useState('30d');
 
-  // Mock data
+  // Mock data based on Mercury dashboard
   const transactions: Transaction[] = [
-    { id: '1', description: 'Client Payment - Project Alpha', amount: 5000, type: 'income', category: 'Consulting', date: '2024-01-15', status: 'completed' },
-    { id: '2', description: 'Office Supplies', amount: 150, type: 'expense', category: 'Office', date: '2024-01-14', status: 'completed' },
-    { id: '3', description: 'Software Subscription', amount: 299, type: 'expense', category: 'Technology', date: '2024-01-13', status: 'pending' },
-    { id: '4', description: 'Freelance Work - Website Design', amount: 2500, type: 'income', category: 'Design', date: '2024-01-12', status: 'completed' },
-    { id: '5', description: 'Travel Expenses', amount: 450, type: 'expense', category: 'Travel', date: '2024-01-11', status: 'completed' },
+    { id: '1', description: 'Stripe', amount: 3200, type: 'income', category: 'Payment', date: 'Today', status: 'completed' },
+    { id: '2', description: 'Netflix', amount: 15.99, type: 'expense', category: 'Subscription', date: 'Today', status: 'completed' },
+    { id: '3', description: 'Transfer from Chase', amount: 5000, type: 'income', category: 'Transfer', date: 'Yesterday', status: 'completed' },
+    { id: '4', description: 'Uber', amount: 23.45, type: 'expense', category: 'Transportation', date: 'Yesterday', status: 'completed' },
+    { id: '5', description: 'Amazon', amount: 89.99, type: 'expense', category: 'Shopping', date: '2 days ago', status: 'completed' },
   ];
 
   const chartData: ChartData[] = [
-    { month: 'Jan', income: 12000, expenses: 8000 },
-    { month: 'Feb', income: 15000, expenses: 9000 },
-    { month: 'Mar', income: 18000, expenses: 11000 },
-    { month: 'Apr', income: 14000, expenses: 8500 },
-    { month: 'May', income: 16000, expenses: 9500 },
-    { month: 'Jun', income: 19000, expenses: 12000 },
+    { month: 'Jan', income: 12500, expenses: 8900 },
+    { month: 'Feb', income: 15800, expenses: 9200 },
+    { month: 'Mar', income: 18200, expenses: 11400 },
+    { month: 'Apr', income: 14100, expenses: 8700 },
+    { month: 'May', income: 16300, expenses: 9800 },
+    { month: 'Jun', income: 19400, expenses: 12300 },
   ];
 
   const totalIncome = transactions.filter(t => t.type === 'income').reduce((sum, t) => sum + t.amount, 0);
@@ -49,13 +49,13 @@ const MercuryDashboard: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-4">
-              <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">M</span>
               </div>
               <h1 className="text-2xl font-bold text-gray-900">Mercury</h1>
             </div>
             <div className="flex items-center space-x-4">
-              <button className="p-2 text-gray-400 hover:text-gray-600">
+              <button className="text-gray-400 hover:text-gray-600">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-5 5v-5z" />
                 </svg>
@@ -76,7 +76,7 @@ const MercuryDashboard: React.FC = () => {
                 onClick={() => setActiveTab(tab)}
                 className={`py-4 px-1 border-b-2 font-medium text-sm capitalize ${
                   activeTab === tab
-                    ? 'border-primary-500 text-primary-600'
+                    ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
@@ -99,7 +99,7 @@ const MercuryDashboard: React.FC = () => {
                 onClick={() => setSelectedPeriod(period)}
                 className={`px-4 py-2 text-sm font-medium rounded-lg ${
                   selectedPeriod === period
-                    ? 'bg-primary-100 text-primary-700'
+                    ? 'bg-blue-100 text-blue-700'
                     : 'text-gray-500 hover:text-gray-700'
                 }`}
               >
@@ -212,7 +212,7 @@ const MercuryDashboard: React.FC = () => {
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-lg font-semibold text-gray-900">Recent Transactions</h3>
-              <button className="text-sm text-primary-600 hover:text-primary-700 font-medium">
+              <button className="text-sm text-blue-600 hover:text-blue-700 font-medium">
                 View all
               </button>
             </div>
@@ -246,16 +246,16 @@ const MercuryDashboard: React.FC = () => {
         <div className="mt-8 bg-white rounded-xl shadow-sm border border-gray-200 p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-6">Quick Actions</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <button className="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
-              <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center mb-2">
-                <svg className="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button className="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-colors">
+              <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mb-2">
+                <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
               </div>
               <span className="text-sm font-medium text-gray-700">New Transaction</span>
             </button>
 
-            <button className="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
+            <button className="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-colors">
               <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mb-2">
                 <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
@@ -264,7 +264,7 @@ const MercuryDashboard: React.FC = () => {
               <span className="text-sm font-medium text-gray-700">Send Money</span>
             </button>
 
-            <button className="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
+            <button className="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-colors">
               <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mb-2">
                 <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -273,7 +273,7 @@ const MercuryDashboard: React.FC = () => {
               <span className="text-sm font-medium text-gray-700">Generate Report</span>
             </button>
 
-            <button className="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
+            <button className="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-colors">
               <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mb-2">
                 <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
